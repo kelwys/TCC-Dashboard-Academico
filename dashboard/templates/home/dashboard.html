@@ -1,0 +1,626 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pr-br">
+
+<!--================================================================================
+	Item Name: Dashboard Academico
+	Version: 1.0
+	Author: kelwys
+	Author URL: http://kelwy.systems
+================================================================================ -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Dashboard Académico é um sistema destinado a instituições de nivel superior com o intuito de auxiliar na tomada de decizão dos coordenadores de curso.">
+    <meta name="keywords" content="dashboard académico">
+    <title>Dashboard Académico</title>
+
+    <!-- Favicons-->
+    <link rel="icon" href={% static "images/favicon/favicon-32x32.png"%} sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href={% static "images/favicon/apple-touch-icon-152x152.png" %}>
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content={% static "images/favicon/mstile-144x144.png" %}>
+    <!-- For Windows Phone -->
+
+
+    <!-- CORE CSS-->
+    <link href={% static "css/materialize.css" %} type="text/css" rel="stylesheet" media="screen,projection">
+    <link href={% static "css/style.css" %} type="text/css" rel="stylesheet" media="screen,projection">
+
+
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href={% static "js/plugins/perfect-scrollbar/perfect-scrollbar.css" %} type="text/css" rel="stylesheet" media="screen,projection">
+    <link href={% static "js/plugins/jvectormap/jquery-jvectormap.css" %} type="text/css" rel="stylesheet" media="screen,projection">
+    <link href={% static "js/plugins/chartist-js/chartist.min.css" %} type="text/css" rel="stylesheet" media="screen,projection">
+
+
+</head>
+
+<body>
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">
+                    <h1 class="logo-wrapper"><a href="/dash/json/" class="brand-logo darken-1">Dashboard Acadêmico</a> <span class="logo-text">Dashboard Acadêmico</span></h1>
+                    <ul class="right hide-on-med-and-down">
+                        <li class="search-out">
+                            <input type="text" class="search-out-text">
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light show-search"><i class="mdi-action-search"></i></a>
+                        </li>
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
+                        </li>
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
+                        </li>
+                        <!-- Dropdown Trigger -->
+                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+
+            <!-- START LEFT SIDEBAR NAV-->
+            <aside id="left-sidebar-nav">
+                <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                    <li class="user-details cyan darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                                <img src={% static "images/avatar.jpg" %} alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                            <div class="col col s8 m8 l8">
+                                <ul id="profile-dropdown" class="dropdown-content">
+                                    <li><a href="#"><i class="mdi-action-face-unlock"></i> Perfil</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-action-settings"></i> Configurações</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-communication-live-help"></i> Ajuda</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    </li>
+                                </ul>
+                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Kelwy Oliveira<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                                <p class="user-roal">Coordenador</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bold"><a href="/dash/json/" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+                    </li>
+
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+
+                            <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-editor-insert-chart"></i> Desempenho</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="charts-chartjs.html">Chart JS</a>
+                                        </li>
+                                        <li><a href="charts-chartist.html">Chartist</a>
+                                        </li>
+                                        <li><a href="charts-morris.html">Morris Charts</a>
+                                        </li>
+                                        <li><a href="charts-xcharts.html">xCharts</a>
+                                        </li>
+                                        <li><a href="charts-flotcharts.html">Flot Charts</a>
+                                        </li>
+                                        <li><a href="charts-sparklines.html">Sparkline Charts</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+{#                    <li class="li-hover"><div class="divider"></div></li>#}
+{#                    <li class="li-hover"><p class="ultra-small margin more-text">MORE</p></li>#}
+                    <li><a href="css-grid.html"><i class="mdi-image-grid-on"></i> Absenteismo</a>
+                    </li>
+                    <li><a href="/dash/sobre"><i class="mdi-editor-format-color-fill"></i> Sobre</a>
+                    </li>
+                    <li><a href="css-helpers.html"><i class="mdi-communication-live-help"></i> Suporte</a>
+                    </li>
+                    <li><a href="changelogs.html"><i class="mdi-action-swap-vert-circle"></i> Logs</a>
+                    </li>
+{#                    <li class="li-hover"><div class="divider"></div></li>#}
+{#                    <li class="li-hover"><p class="ultra-small margin more-text">Daily Sales</p></li>#}
+{#                    <li class="li-hover">#}
+{#                        <div class="row">#}
+{#                            <div class="col s12 m12 l12">#}
+{#                                <div class="sample-chart-wrapper">                            #}
+{#                                    <div class="ct-chart ct-golden-section" id="ct2-chart"></div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </li>#}
+                </ul>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>
+            </aside>
+            <!-- END LEFT SIDEBAR NAV-->
+
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+            <!-- START CONTENT -->
+            <section id="content">
+
+                <!--start container-->
+                <div class="container">
+
+                    <!--chart dashboard start-->
+                    <div id="chart-dashboard">
+
+                        <!-- input select start -->
+                        <div class="row">
+                        <form enctype="multipart/form-data" action="{% url 'gerajson'%}"method="post" id="aval_form" class="form-horizontal">
+                            {% csrf_token %}
+{#                             <div class="col s12 m5 l5">#}
+{#                                <div class="control-group form-row field-grupo ">#}
+{#                                    <div>#}
+{#                                        <div class="control-label">#}
+{#                                            <label class="required" for="grupo">Disciplina:</label>#}
+{#                                        </div>#}
+{#                                        <div class="controls">#}
+{#                                            <div class="related-widget-wrapper">#}
+{#                                                <select id="disciplina" name="disciplina" required>#}
+{#                                                    {% for g in disciplina %}#}
+{##}
+{#                                                        <option selected value="{{ g.iddim_disciplina }}">{{ g.nome }}{{ g.iddim_disciplina }}</option>#}
+{##}
+{##}
+{#                                                    {% endfor %}#}
+{#                                                <option value="" disabled selected>Escolha uma disciplina</option>#}
+{#                                                </select>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                             </div>#}
+                            <div class="col s12 m5 l5">
+                                <div class="control-group form-row field-grupo ">
+                                    <div>
+                                        <div class="control-label">
+                                            <label class="required" for="grupo2">Disciplina:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <div class="related-widget-wrapper">
+                                                <select id="disciplina" name="disciplina" required>
+                                                    {% for d in disciplina %}
+
+                                                        <option selected value="{{ d.iddim_disciplina }}">{{ d.nome }}</option>
+
+
+                                                    {% endfor %}
+                                                <option value="" disabled selected>Escolha uma disciplina</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m5 l5">
+                                <div class="control-group form-row field-grupo ">
+                                    <div>
+                                        <div class="control-label">
+                                            <label class="required" for="grupo">Turma de Ingresso:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <div class="related-widget-wrapper">
+                                                <select id="turma" name="turma" required>
+                                                    {% for g in turma %}
+{#                                                        {% if turmapost == g.iddim_turmadeingresso %}#}
+                                                            <option selected value="{{ g.iddim_turmadeingresso }}">{{ g.descricao }}</option>
+{#                                                            {% else  %}#}
+{#                                                                <option value="{{ g.iddim_turmadeingresso }}">{{ g.descricao }}{{ turmapost }}{{ g.iddim_turmadeingresso }}</option>#}
+{#                                                        {% endif %}#}
+
+                                                    {% endfor %}
+                                                <option value="" disabled selected>Escolha uma Turma</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="col s12 m5 l5">
+                                <div class="control-group form-row field-grupo ">
+                                    <div>
+                                        <div class="control-label">
+                                            <label class="required" for="grupo3">Professor:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <div class="related-widget-wrapper">
+                                                <select id="professor" name="professor" required>
+                                                    {% for p in professor %}
+
+                                                        <option selected value="{{ p.iddim_professor}}">{{ p.nome_pessoa }}</option>
+
+
+                                                    {% endfor %}
+                                                <option value="" disabled selected>Escolha um Professor</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m2 l2"><br>
+                                <button class="btn cyan waves-effect waves-light" type="submit" name="action"><i class="mdi-content-send right"></i> Gerar</button>
+                            </div>
+                        </form>
+                        </div>
+                        <!-- input select and -->
+
+                        <div class="row">
+
+                            <div class="col s12 m6 l8">
+
+                                <div class="card">
+                                    <div class="card-move-up waves-effect waves-block waves-light">
+                                        <div class="move-up cyan darken-1">
+
+
+
+
+
+
+
+{#                                            <div>#}
+                                                <span class="chart-title white-text">Média de nota.</span>
+{#                                                <div class="chart-revenue cyan darken-2 white-text">#}
+{#                                                    <p class="chart-revenue-total">$4,500.85</p>#}
+{#                                                    <p class="chart-revenue-per"><i class="mdi-navigation-arrow-drop-up"></i> 21.80 %</p>#}
+{#                                                </div>#}
+{#                                                <div class="switch chart-revenue-switch right">#}
+{#                                                    <label class="cyan-text text-lighten-5">#}
+{#                                                      Month#}
+{#                                                      <input type="checkbox">#}
+{#                                                      <span class="lever"></span> Year#}
+{#                                                    </label>#}
+{#                                                </div>#}
+{#                                            </div>#}
+                                            <div class="trending-line-chart-wrapper">
+                                                <canvas id="trending-line-chart" height="140"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col s12 m4 l4">
+                                <div class="card">
+                                    <div class="container">
+
+  <div>
+      <span >Média de falta.</span>
+    <canvas id="bar-chart-sample" height="350"></canvas>
+  </div>
+</div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--chart dashboard end-->
+
+                    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+                </div>
+                <!--end container-->
+            </section>
+            <!-- END CONTENT -->
+
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+        </div>
+        <!-- END WRAPPER -->
+
+    </div>
+    <!-- END MAIN -->
+
+
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+<br><br><br>
+    <!-- START FOOTER -->
+    <footer class="page-footer">
+
+
+        <div class="footer-copyright">
+            <div class="container">
+                Copyright © 2016 <a class="grey-text text-lighten-4" href="http://kelwys.systems" target="_blank">kelwy.systems</a> All rights reserved.
+                <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://kelwys.systems">Kelwy e Mayara</a></span>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+
+    <!-- ================================================
+    Scripts
+    ================================================ -->
+
+    <!-- jQuery Library -->
+    <script type="text/javascript" src={% static "js/jquery-1.11.2.min.js" %}></script>
+    <!--materialize js-->
+    <script type="text/javascript" src={% static "js/materialize.min.js" %}></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src={% static "js/plugins/perfect-scrollbar/perfect-scrollbar.min.js" %}></script>
+
+
+    <!-- chartist -->
+    <script type="text/javascript" src={% static "js/plugins/chartist-js/chartist.min.js" %}></script>
+
+    <!-- chartjs -->
+    <script type="text/javascript" src={% static "js/plugins/chartjs/chart.min.js" %}></script>
+    <script type="text/javascript" src={% static "js/plugins/chartjs/chart-script.js" %}></script>
+
+    <!-- sparkline -->
+    <script type="text/javascript" src={% static "js/plugins/sparkline/jquery.sparkline.min.js" %}></script>
+    <script type="text/javascript" src={% static "js/plugins/sparkline/sparkline-script.js" %}></script>
+
+    <!--jvectormap-->
+    <script type="text/javascript" src={% static "js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" %}></script>
+    <script type="text/javascript" src={% static "js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" %}></script>
+    <script type="text/javascript" src={% static "js/plugins/jvectormap/vectormap-script.js" %}></script>
+
+
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src={% static "js/plugins.js" %}></script>
+    <!-- Toast Notification -->
+{#    <script type="text/javascript">#}
+{#    // Toast Notification#}
+{#    $(window).load(function() {#}
+{#        setTimeout(function() {#}
+{#            Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);#}
+{#        }, 3000);#}
+{#        setTimeout(function() {#}
+{#            Materialize.toast('<span>You can swipe me too!</span>', 3000);#}
+{#        }, 5500);#}
+{#        setTimeout(function() {#}
+{#            Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);#}
+{#        }, 18000);#}
+{#    });#}
+
+
+
+    <script>
+
+        var data = {
+            labels : ["Nota N1","Nota N2","Exame Semestral"],
+            datasets : [
+                {
+                    label: "First dataset",
+                    fillColor : "rgba(128, 222, 234, 0.6)",
+                    strokeColor : "#ffffff",
+                    pointColor : "#00bcd4",
+                    pointStrokeColor : "#ffffff",
+                    pointHighlightFill : "#ffffff",
+                    pointHighlightStroke : "#ffffff",
+                    data: {{ nota }}}
+{#                },#}
+{#                {#}
+{#                    label: "Second dataset",#}
+{#                    fillColor : "rgba(128, 222, 234, 0.3)",#}
+{#                    strokeColor : "#80deea",#}
+{#                    pointColor : "#00bcd4",#}
+{#                    pointStrokeColor : "#80deea",#}
+{#                    pointHighlightFill : "#80deea",#}
+{#                    pointHighlightStroke : "#80deea",#}
+{#                    data: {{ nota }}#}
+{#                }#}
+            ]
+        };
+
+        var nReloads = 0;
+        var min = 1;
+        var max = 10;
+        var l =0;
+        var trendingLineChart;
+{#        function update() {#}
+{#            nReloads++;#}
+{##}
+{#            var x = Math.floor(Math.random() * (max - min + 1)) + min;#}
+{#            var y = Math.floor(Math.random() * (max - min + 1)) + min;#}
+{#            trendingLineChart.addData([x, y], data.labels[l]);#}
+{#            trendingLineChart.removeData();#}
+{#            l++;#}
+{#            if( l == data.labels.length)#}
+{#                { l = 0;}#}
+{#        }#}
+{#        setInterval(update, 10000);#}
+
+
+
+window.onload = function() {
+    var trendingLineChart = document.getElementById("trending-line-chart").getContext("2d");
+    window.trendingLineChart = new Chart(trendingLineChart).Line(data, {
+        scaleShowGridLines: true,///Boolean - Whether grid lines are shown across the chart
+        scaleGridLineColor: "rgba(255,255,255,0.4)",//String - Colour of the grid lines
+        scaleGridLineWidth: 1,//Number - Width of the grid lines
+        scaleShowHorizontalLines: true,//Boolean - Whether to show horizontal lines (except X axis)
+        scaleShowVerticalLines: false,//Boolean - Whether to show vertical lines (except Y axis)
+        bezierCurve: true,//Boolean - Whether the line is curved between points
+        bezierCurveTension: 0.4,//Number - Tension of the bezier curve between points
+        pointDot: true,//Boolean - Whether to show a dot for each point
+        pointDotRadius: 5,//Number - Radius of each point dot in pixels
+        pointDotStrokeWidth: 2,//Number - Pixel width of point dot stroke
+        pointHitDetectionRadius: 20,//Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+        datasetStroke: true,//Boolean - Whether to show a stroke for datasets
+        datasetStrokeWidth: 3,//Number - Pixel width of dataset stroke
+        datasetFill: true,//Boolean - Whether to fill the dataset with a colour
+        animationSteps: 60,// Number - Number of animation steps
+        animationEasing: "easeOutQuart",// String - Animation easing effect
+        tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+        scaleFontSize: 12,// Number - Scale label font size in pixels
+        scaleFontStyle: "normal",// String - Scale label font weight style
+        scaleFontColor: "#fff",// String - Scale label font colour
+        tooltipEvents: ["mousemove", "touchstart", "touchmove"],// Array - Array of string names to attach tooltip events
+        tooltipFillColor: "rgba(255,255,255,0.8)",// String - Tooltip background colour
+        tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+        tooltipFontSize: 12,// Number - Tooltip label font size in pixels
+        tooltipFontColor: "#000",// String - Tooltip label font colour
+        tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+        tooltipTitleFontSize: 14,// Number - Tooltip title font size in pixels
+        tooltipTitleFontStyle: "bold",// String - Tooltip title font weight style
+        tooltipTitleFontColor: "#000",// String - Tooltip title font colour
+        tooltipYPadding: 8,// Number - pixel width of padding around tooltip text
+        tooltipXPadding: 16,// Number - pixel width of padding around tooltip text
+        tooltipCaretSize: 10,// Number - Size of the caret on the tooltip
+        tooltipCornerRadius: 6,// Number - Pixel radius of the tooltip border
+        tooltipXOffset: 10,// Number - Pixel offset from point x to tooltip edge
+        responsive: true
+    });
+
+    var doughnutChart = document.getElementById("doughnut-chart").getContext("2d");
+		window.myDoughnut = new Chart(doughnutChart).Doughnut(doughnutData, {
+			segmentStrokeColor : "#fff",
+			tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+			percentageInnerCutout : 50,
+			animationSteps : 100,
+			segmentStrokeWidth : 4,
+			animateScale: true,
+			percentageInnerCutout : 60,
+			responsive : true
+		});
+
+		var trendingBarChart = document.getElementById("trending-bar-chart").getContext("2d");
+		window.trendingBarChart = new Chart(trendingBarChart).Bar(dataBarChart,{
+			scaleShowGridLines : false,///Boolean - Whether grid lines are shown across the chart
+			showScale: true,
+			tooltipTitleFontFamily: "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+			responsive : true
+		});
+
+		window.trendingRadarChart = new Chart(document.getElementById("trending-radar-chart").getContext("2d")).Radar(radarChartData, {
+
+		    angleLineColor : "rgba(255,255,255,0.5)",//String - Colour of the angle line
+		    pointLabelFontFamily : "'Roboto','Helvetica Neue', 'Helvetica', 'Arial', sans-serif",// String - Tooltip title font declaration for the scale label
+		    pointLabelFontColor : "#fff",//String - Point label font colour
+		    pointDotRadius : 4,
+		    pointDotStrokeWidth : 2,
+		    pointLabelFontSize : 12,
+			responsive: true
+		});
+
+		// var pieChartArea = document.getElementById("pie-chart-area").getContext("2d");
+		// window.pieChartArea = new Chart(pieChartArea).Pie(pieData,{
+		// 	responsive: true
+		// });
+
+		var lineChart = document.getElementById("line-chart").getContext("2d");
+		window.lineChart = new Chart(lineChart).Line(lineChartData, {
+			scaleShowGridLines : false,
+			bezierCurve : false,
+			scaleFontSize: 12,
+			scaleFontStyle: "normal",
+			scaleFontColor: "#fff",
+			responsive: true,
+		});
+
+		var polarChartCountry = document.getElementById("polar-chart-country").getContext("2d");
+		window.polarChartCountry = new Chart(polarChartCountry).PolarArea(polarData, {
+			segmentStrokeWidth : 1,
+			responsive:true
+		});
+
+        var datachartbar = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+                {
+                    label: "My First dataset",
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1,
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                }
+            ]
+        };
+};
+    </script>
+<script>
+var dData = function() {
+  return Math.round(Math.random() * 2) + 10
+};
+
+var barChartData = {
+  labels: ["2013/1", "2013/2", "2014/1", "2014/2","2015/1","2015/2","2016/1","2016/2"],
+  datasets: [{
+    fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+{#    data: [dData(), dData(), dData(), dData(), dData(), dData(), dData(), dData()]#}
+      data: {{ falta }}
+  }]
+}
+
+var index = 11;
+var ctx = document.getElementById("bar-chart-sample").getContext("2d");
+var barChartDemo = new Chart(ctx).Bar(barChartData, {
+  responsive: true,
+  barValueSpacing: 2
+});
+{#setInterval(function() {#}
+{#  barChartDemo.removeData();#}
+{#  barChartDemo.addData([dData()], "dD " + index);#}
+{#  index++;#}
+{#, 3000);#}
+</script>
+</body>
+
+</html>
