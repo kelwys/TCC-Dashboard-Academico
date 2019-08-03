@@ -1,7 +1,7 @@
 Dashboard Acadêmico
 ===============
 
-Este trabalho tem por objetivo apresentar uma solução que auxilie à Coordenadores de curso de graduação a entender as necessidades do segmento, enxergar oportunidades, identificar falhas, tudo isso com base nas informações tratadas pelo sistema, o programa permite visualização de um painel de gráficos e informações que apoiam os coordenadores na tomada de decisão. Permitindo que a função do coordenador possa ser ainda mais gerencial, sendo visível a agregação de diferenciais estratégicos que estimulem a dominação no ambiente de concorrência com outros cursos do mercado, com nível de ensino de qualidade e condições que estruturam e diferenciam os tais.
+Trabalho de conclusão de curso desenvolvido em 2016. Tem por objetivo apresentar uma solução que auxilie à Coordenadores de curso de graduação a entender as necessidades do segmento, enxergar oportunidades, identificar falhas, tudo isso com base nas informações tratadas pelo sistema, o programa permite visualização de um painel de gráficos e informações que apoiam os coordenadores na tomada de decisão. Permitindo que a função do coordenador possa ser ainda mais gerencial, sendo visível a agregação de diferenciais estratégicos que estimulem a dominação no ambiente de concorrência com outros cursos do mercado, com nível de ensino de qualidade e condições que estruturam e diferenciam os tais.
 
 Dependencias
 ------------
